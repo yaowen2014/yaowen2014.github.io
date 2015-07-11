@@ -1,0 +1,881 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+/* line 19, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/reset.css.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video, button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+/* line 29, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/reset.css.scss */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* line 32, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/reset.css.scss */
+body {
+  line-height: 1;
+}
+
+/* line 35, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/reset.css.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 38, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/reset.css.scss */
+blockquote, q {
+  quotes: none;
+}
+
+/* line 42, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/reset.css.scss */
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+/* line 46, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/reset.css.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/*
+    @license
+    Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+    This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+    The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+    The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+    Code distributed by Google as part of the polymer project is also
+    subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+ */
+/**************************/
+/* STYLES FOR THE SPINNER */
+/**************************/
+/*
+ * Constants:
+ *      STROKEWIDTH = 3px
+ *      ARCSIZE     = 270 degrees (amount of circle the arc takes up)
+ *      ARCTIME     = 1333ms (time it takes to expand and contract arc)
+ *      ARCSTARTROT = 216 degrees (how much the start location of the arc
+ *                                should rotate each time, 216 gives us a
+ *                                5 pointed star shape (it's 360/5 * 3).
+ *                                For a 7 pointed star, we might do
+ *                                360/7 * 3 = 154.286)
+ *      CONTAINERWIDTH = 28px
+ *      SHRINK_TIME = 400ms
+ */
+/* line 31, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+.preloader-wrapper {
+  display: inline-block;
+  position: relative;
+  width: 48px;
+  height: 48px;
+}
+/* line 37, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+.preloader-wrapper.small {
+  width: 36px;
+  height: 36px;
+}
+/* line 42, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+.preloader-wrapper.big {
+  width: 64px;
+  height: 64px;
+}
+/* line 47, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+.preloader-wrapper.active {
+  /* duration: 360 * ARCTIME / (ARCSTARTROT + (360-ARCSIZE)) */
+  -webkit-animation: container-rotate 1568ms linear infinite;
+  animation: container-rotate 1568ms linear infinite;
+}
+
+@-webkit-keyframes container-rotate {
+  /* line 55, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes container-rotate {
+  /* line 59, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* line 62, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+.spinner-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -ms-filter: "progid:DXImageTransform@mixin Microsoft@mixin Alpha(Opacity=${iefactor})";
+  filter: "alpha(opacity=(${iefactor}))";
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  opacity: 0;
+}
+
+/* line 70, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+.spinner-blue,
+.spinner-blue-only {
+  border-color: #4285f4;
+}
+
+/* line 75, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+.spinner-red,
+.spinner-red-only {
+  border-color: #db4437;
+}
+
+/* line 80, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+.spinner-yellow,
+.spinner-yellow-only {
+  border-color: #f4b400;
+}
+
+/* line 85, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+.spinner-green,
+.spinner-green-only {
+  border-color: #0f9d58;
+}
+
+/**
+ * IMPORTANT NOTE ABOUT CSS ANIMATION PROPERTIES (keanulee):
+ *
+ * iOS Safari (tested on iOS 8.1) does not handle animation-delay very well - it doesn't
+ * guarantee that the animation will start _exactly_ after that value. So we avoid using
+ * animation-delay and instead set custom keyframes for each color (as redundant as it
+ * seems).
+ *
+ * We write out each animation in full (instead of separating animation-name,
+ * animation-duration, etc.) because under the polyfill, Safari does not recognize those
+ * specific properties properly, treats them as -webkit-animation, and overrides the
+ * other animation rules. See https://github.com/Polymer/platform/issues/53.
+ */
+/* line 102, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+.active .spinner-layer.spinner-blue {
+  /* durations: 4 * ARCTIME */
+  -webkit-animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, blue-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+  animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, blue-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+}
+
+/* line 108, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+.active .spinner-layer.spinner-red {
+  /* durations: 4 * ARCTIME */
+  -webkit-animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, red-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+  animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, red-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+}
+
+/* line 114, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+.active .spinner-layer.spinner-yellow {
+  /* durations: 4 * ARCTIME */
+  -webkit-animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, yellow-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+  animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, yellow-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+}
+
+/* line 120, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+.active .spinner-layer.spinner-green {
+  /* durations: 4 * ARCTIME */
+  -webkit-animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, green-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+  animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, green-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+}
+
+/* line 129, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+.active .spinner-layer.spinner-blue-only,
+.active .spinner-layer.spinner-red-only,
+.active .spinner-layer.spinner-yellow-only,
+.active .spinner-layer.spinner-green-only {
+  /* durations: 4 * ARCTIME */
+  -ms-filter: "progid:DXImageTransform@mixin Microsoft@mixin Alpha(Opacity=${iefactor})";
+  filter: "alpha(opacity=(${iefactor}))";
+  -moz-opacity: 1;
+  -khtml-opacity: 1;
+  opacity: 1;
+  -webkit-animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+  animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+}
+
+@-webkit-keyframes fill-unfill-rotate {
+  /* line 137, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  12.5% {
+    -webkit-transform: rotate(135deg);
+  }
+
+  /* 0.5 * ARCSIZE */
+  /* line 138, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  25% {
+    -webkit-transform: rotate(270deg);
+  }
+
+  /* 1   * ARCSIZE */
+  /* line 139, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  37.5% {
+    -webkit-transform: rotate(405deg);
+  }
+
+  /* 1.5 * ARCSIZE */
+  /* line 140, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  50% {
+    -webkit-transform: rotate(540deg);
+  }
+
+  /* 2   * ARCSIZE */
+  /* line 141, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  62.5% {
+    -webkit-transform: rotate(675deg);
+  }
+
+  /* 2.5 * ARCSIZE */
+  /* line 142, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  75% {
+    -webkit-transform: rotate(810deg);
+  }
+
+  /* 3   * ARCSIZE */
+  /* line 143, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  87.5% {
+    -webkit-transform: rotate(945deg);
+  }
+
+  /* 3.5 * ARCSIZE */
+  /* line 144, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  to {
+    -webkit-transform: rotate(1080deg);
+  }
+
+  /* 4   * ARCSIZE */
+}
+
+@keyframes fill-unfill-rotate {
+  /* line 148, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  12.5% {
+    transform: rotate(135deg);
+  }
+
+  /* 0.5 * ARCSIZE */
+  /* line 149, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  25% {
+    transform: rotate(270deg);
+  }
+
+  /* 1   * ARCSIZE */
+  /* line 150, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  37.5% {
+    transform: rotate(405deg);
+  }
+
+  /* 1.5 * ARCSIZE */
+  /* line 151, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  50% {
+    transform: rotate(540deg);
+  }
+
+  /* 2   * ARCSIZE */
+  /* line 152, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  62.5% {
+    transform: rotate(675deg);
+  }
+
+  /* 2.5 * ARCSIZE */
+  /* line 153, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  75% {
+    transform: rotate(810deg);
+  }
+
+  /* 3   * ARCSIZE */
+  /* line 154, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  87.5% {
+    transform: rotate(945deg);
+  }
+
+  /* 3.5 * ARCSIZE */
+  /* line 155, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  to {
+    transform: rotate(1080deg);
+  }
+
+  /* 4   * ARCSIZE */
+}
+
+@-webkit-keyframes blue-fade-in-out {
+  /* line 159, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  from {
+    opacity: 1;
+  }
+
+  /* line 160, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  25% {
+    opacity: 1;
+  }
+
+  /* line 161, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  26% {
+    opacity: 0;
+  }
+
+  /* line 162, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  89% {
+    opacity: 0;
+  }
+
+  /* line 163, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  90% {
+    opacity: 1;
+  }
+
+  /* line 164, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes blue-fade-in-out {
+  /* line 168, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  from {
+    opacity: 1;
+  }
+
+  /* line 169, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  25% {
+    opacity: 1;
+  }
+
+  /* line 170, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  26% {
+    opacity: 0;
+  }
+
+  /* line 171, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  89% {
+    opacity: 0;
+  }
+
+  /* line 172, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  90% {
+    opacity: 1;
+  }
+
+  /* line 173, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes red-fade-in-out {
+  /* line 177, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  from {
+    opacity: 0;
+  }
+
+  /* line 178, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  15% {
+    opacity: 0;
+  }
+
+  /* line 179, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  25% {
+    opacity: 1;
+  }
+
+  /* line 180, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  50% {
+    opacity: 1;
+  }
+
+  /* line 181, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  51% {
+    opacity: 0;
+  }
+}
+
+@keyframes red-fade-in-out {
+  /* line 185, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  from {
+    opacity: 0;
+  }
+
+  /* line 186, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  15% {
+    opacity: 0;
+  }
+
+  /* line 187, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  25% {
+    opacity: 1;
+  }
+
+  /* line 188, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  50% {
+    opacity: 1;
+  }
+
+  /* line 189, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  51% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes yellow-fade-in-out {
+  /* line 193, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  from {
+    opacity: 0;
+  }
+
+  /* line 194, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  40% {
+    opacity: 0;
+  }
+
+  /* line 195, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  50% {
+    opacity: 1;
+  }
+
+  /* line 196, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  75% {
+    opacity: 1;
+  }
+
+  /* line 197, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  76% {
+    opacity: 0;
+  }
+}
+
+@keyframes yellow-fade-in-out {
+  /* line 201, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  from {
+    opacity: 0;
+  }
+
+  /* line 202, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  40% {
+    opacity: 0;
+  }
+
+  /* line 203, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  50% {
+    opacity: 1;
+  }
+
+  /* line 204, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  75% {
+    opacity: 1;
+  }
+
+  /* line 205, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  76% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes green-fade-in-out {
+  /* line 209, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  from {
+    opacity: 0;
+  }
+
+  /* line 210, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  65% {
+    opacity: 0;
+  }
+
+  /* line 211, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  75% {
+    opacity: 1;
+  }
+
+  /* line 212, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  90% {
+    opacity: 1;
+  }
+
+  /* line 213, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes green-fade-in-out {
+  /* line 217, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  from {
+    opacity: 0;
+  }
+
+  /* line 218, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  65% {
+    opacity: 0;
+  }
+
+  /* line 219, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  75% {
+    opacity: 1;
+  }
+
+  /* line 220, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  90% {
+    opacity: 1;
+  }
+
+  /* line 221, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  100% {
+    opacity: 0;
+  }
+}
+
+/**
+ * Patch the gap that appear between the two adjacent div.circle-clipper while the
+ * spinner is rotating (appears on Chrome 38, Safari 7.1, and IE 11).
+ */
+/* line 228, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+.gap-patch {
+  position: absolute;
+  box-sizing: border-box;
+  top: 0;
+  left: 45%;
+  width: 10%;
+  height: 100%;
+  overflow: hidden;
+  border-color: inherit;
+}
+
+/* line 239, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+.gap-patch .circle {
+  width: 1000%;
+  left: -450%;
+}
+
+/* line 244, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+.circle-clipper {
+  display: inline-block;
+  position: relative;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  border-color: inherit;
+}
+/* line 252, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+.circle-clipper .circle {
+  width: 200%;
+  box-sizing: border-box;
+  height: 100%;
+  border-width: 3px;
+  /* STROKEWIDTH */
+  border-style: solid;
+  border-color: inherit;
+  border-bottom-color: transparent !important;
+  border-radius: 50%;
+  -webkit-animation: none;
+  animation: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+/* line 269, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+.circle-clipper.left .circle {
+  left: 0;
+  border-right-color: transparent !important;
+  -webkit-transform: rotate(129deg);
+  transform: rotate(129deg);
+}
+/* line 275, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+.circle-clipper.right .circle {
+  left: -100%;
+  border-left-color: transparent !important;
+  -webkit-transform: rotate(-129deg);
+  transform: rotate(-129deg);
+}
+
+/* line 285, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+.active .circle-clipper.left .circle {
+  /* duration: ARCTIME */
+  -webkit-animation: left-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+  animation: left-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+}
+
+/* line 291, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+.active .circle-clipper.right .circle {
+  /* duration: ARCTIME */
+  -webkit-animation: right-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+  animation: right-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+}
+
+@-webkit-keyframes left-spin {
+  /* line 298, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  from {
+    -webkit-transform: rotate(130deg);
+  }
+
+  /* line 299, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  50% {
+    -webkit-transform: rotate(-5deg);
+  }
+
+  /* line 300, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  to {
+    -webkit-transform: rotate(130deg);
+  }
+}
+
+@keyframes left-spin {
+  /* line 304, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  from {
+    transform: rotate(130deg);
+  }
+
+  /* line 305, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  50% {
+    transform: rotate(-5deg);
+  }
+
+  /* line 306, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  to {
+    transform: rotate(130deg);
+  }
+}
+
+@-webkit-keyframes right-spin {
+  /* line 310, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  from {
+    -webkit-transform: rotate(-130deg);
+  }
+
+  /* line 311, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  50% {
+    -webkit-transform: rotate(5deg);
+  }
+
+  /* line 312, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  to {
+    -webkit-transform: rotate(-130deg);
+  }
+}
+
+@keyframes right-spin {
+  /* line 316, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  from {
+    transform: rotate(-130deg);
+  }
+
+  /* line 317, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  50% {
+    transform: rotate(5deg);
+  }
+
+  /* line 318, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  to {
+    transform: rotate(-130deg);
+  }
+}
+
+/* line 321, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+#spinnerContainer.cooldown {
+  /* duration: SHRINK_TIME */
+  -webkit-animation: container-rotate 1568ms linear infinite, fade-out 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  animation: container-rotate 1568ms linear infinite, fade-out 400ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@-webkit-keyframes fade-out {
+  /* line 328, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  from {
+    opacity: 1;
+  }
+
+  /* line 329, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-out {
+  /* line 333, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  from {
+    opacity: 1;
+  }
+
+  /* line 334, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/libs/materialize/components/_preloader.scss */
+  to {
+    opacity: 0;
+  }
+}
+
+/* line 4, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/page.css.scss */
+body {
+  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+}
+
+@media screen and (max-width: 420px) {
+  /* line 11, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/page.css.scss */
+  .stories-list-item .score-info-wrap,
+  .stories-list-item .create-info-wrap {
+    display: block;
+  }
+  /* line 15, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/page.css.scss */
+  .stories-list-item .score-info-wrap {
+    margin-bottom: 10px;
+  }
+}
+@media screen and (min-width: 421px) {
+  /* line 24, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/page.css.scss */
+  .stories-list-item .score-info-wrap,
+  .stories-list-item .create-info-wrap {
+    display: inline-block;
+  }
+}
+/* line 30, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/page.css.scss */
+.tabs-list {
+  text-align: center;
+  box-sizing: border-box;
+  height: 30px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+}
+/* line 35, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/page.css.scss */
+.tabs-list .tab-btn {
+  display: inline-block;
+  padding: 7px 8px;
+  cursor: pointer;
+}
+/* line 40, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/page.css.scss */
+.tabs-list .tab-btn:hover {
+  background-color: rgba(0, 0, 0, 0.08);
+}
+/* line 44, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/page.css.scss */
+.tabs-list .tab-btn.active {
+  border-bottom: 1px solid black;
+}
+
+/* line 51, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/page.css.scss */
+.stories-list-item {
+  padding: 11px 15px 11px 15px;
+  margin-bottom: 10px;
+  opacity: 0;
+  -webkit-perspective: 1300px;
+  -moz-perspective: 1300px;
+  perspective: 1300px;
+}
+/* line 57, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/page.css.scss */
+.stories-list-item:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.08);
+}
+/* line 62, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/page.css.scss */
+.stories-list-item.active {
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transform: translateZ(50px) translateY(50px) rotateX(-90deg);
+  -moz-transform: translateZ(50px) translateY(50px) rotateX(-90deg);
+  -ms-transform: translateZ(50px) translateY(50px) rotateX(-90deg);
+  -o-transform: translateZ(50px) translateY(50px) rotateX(-90deg);
+  transform: translateZ(50px) translateY(50px) rotateX(-90deg);
+  -webkit-animation: fallPerspective 0.8s ease-in-out forwards;
+  -moz-animation: fallPerspective 0.8s ease-in-out forwards;
+  -ms-animation: fallPerspective 0.8s ease-in-out forwards;
+  -o-animation: fallPerspective 0.8s ease-in-out forwards;
+  animation: fallPerspective 0.8s ease-in-out forwards;
+}
+/* line 68, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/page.css.scss */
+.stories-list-item .title {
+  font-size: 16px;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+/* line 74, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/page.css.scss */
+.stories-list-item .info-line {
+  font-size: 12px;
+}
+/* line 77, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/page.css.scss */
+.stories-list-item .info-line .score-info {
+  border-radius: 100px;
+  padding: 2px 9px 3px;
+  background-color: rgba(0, 0, 0, 0.15);
+  margin-right: 10px;
+}
+/* line 84, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/page.css.scss */
+.stories-list-item .info-line .create-info {
+  color: #bbbbbb;
+}
+
+/* line 90, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/page.css.scss */
+.loading-hint {
+  width: 24px;
+  margin: auto;
+}
+/* line 96, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/page.css.scss */
+.loading-hint .preloader-wrapper {
+  height: 24px;
+  width: 24px;
+}
+
+@-webkit-keyframes fallPerspective {
+  /* line 104, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/page.css.scss */
+  100% {
+    -webkit-transform: translateZ(0px) translateY(0px) rotateX(0deg);
+    -moz-transform: translateZ(0px) translateY(0px) rotateX(0deg);
+    -ms-transform: translateZ(0px) translateY(0px) rotateX(0deg);
+    -o-transform: translateZ(0px) translateY(0px) rotateX(0deg);
+    transform: translateZ(0px) translateY(0px) rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fallPerspective {
+  /* line 104, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/page.css.scss */
+  100% {
+    -webkit-transform: translateZ(0px) translateY(0px) rotateX(0deg);
+    -moz-transform: translateZ(0px) translateY(0px) rotateX(0deg);
+    -ms-transform: translateZ(0px) translateY(0px) rotateX(0deg);
+    -o-transform: translateZ(0px) translateY(0px) rotateX(0deg);
+    transform: translateZ(0px) translateY(0px) rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes fallPerspective {
+  /* line 104, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/page.css.scss */
+  100% {
+    -webkit-transform: translateZ(0px) translateY(0px) rotateX(0deg);
+    -moz-transform: translateZ(0px) translateY(0px) rotateX(0deg);
+    -ms-transform: translateZ(0px) translateY(0px) rotateX(0deg);
+    -o-transform: translateZ(0px) translateY(0px) rotateX(0deg);
+    transform: translateZ(0px) translateY(0px) rotateX(0deg);
+    opacity: 1;
+  }
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+
