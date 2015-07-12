@@ -12274,7 +12274,6 @@ function proxyEvents(proxy, originalObj, options) {
         this.gotoPost = function(){
             window.location = self.url();
         }
-
     }
 }).call(window);
 (function(){
@@ -12362,7 +12361,7 @@ function proxyEvents(proxy, originalObj, options) {
         ]);
 
         $(window).scroll(function(){
-            if (window.scrollY > document.body.clientHeight - window.innerHeight - 50) {
+            if ($(window).scrollTop() > $(document).outerHeight() - window.innerHeight - 50) {
                 self.tabsList.activeButton().shownComponent.loadMore();
             }
         });
