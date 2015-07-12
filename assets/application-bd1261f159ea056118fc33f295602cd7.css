@@ -742,28 +742,42 @@ body {
   }
 }
 /* line 30, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/page.css.scss */
+.tabs-list-wrap {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white;
+  z-index: 2;
+}
+
+/* line 38, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/page.css.scss */
 .tabs-list {
   text-align: center;
   box-sizing: border-box;
   height: 30px;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
 }
-/* line 35, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/page.css.scss */
+/* line 43, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/page.css.scss */
 .tabs-list .tab-btn {
   display: inline-block;
   padding: 7px 8px;
   cursor: pointer;
 }
-/* line 40, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/page.css.scss */
+/* line 48, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/page.css.scss */
 .tabs-list .tab-btn:hover {
   background-color: rgba(0, 0, 0, 0.08);
 }
-/* line 44, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/page.css.scss */
+/* line 52, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/page.css.scss */
 .tabs-list .tab-btn.active {
   border-bottom: 1px solid black;
 }
 
-/* line 51, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/page.css.scss */
+/* line 58, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/page.css.scss */
+.main-wrap {
+  padding-top: 30px;
+}
+
+/* line 62, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/page.css.scss */
 .stories-list-item {
   padding: 11px 15px 11px 15px;
   margin-bottom: 10px;
@@ -772,12 +786,12 @@ body {
   -moz-perspective: 1300px;
   perspective: 1300px;
 }
-/* line 57, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/page.css.scss */
+/* line 68, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/page.css.scss */
 .stories-list-item:hover {
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.08);
 }
-/* line 62, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/page.css.scss */
+/* line 73, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/page.css.scss */
 .stories-list-item.active {
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
@@ -795,41 +809,41 @@ body {
   -o-animation: fallPerspective 0.8s ease-in-out forwards;
   animation: fallPerspective 0.8s ease-in-out forwards;
 }
-/* line 68, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/page.css.scss */
+/* line 79, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/page.css.scss */
 .stories-list-item .title {
   font-size: 16px;
   margin-bottom: 10px;
   line-height: 1.5;
 }
-/* line 74, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/page.css.scss */
+/* line 85, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/page.css.scss */
 .stories-list-item .info-line {
   font-size: 12px;
 }
-/* line 77, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/page.css.scss */
+/* line 88, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/page.css.scss */
 .stories-list-item .info-line .score-info {
   border-radius: 100px;
   padding: 2px 9px 3px;
   background-color: rgba(0, 0, 0, 0.15);
   margin-right: 10px;
 }
-/* line 84, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/page.css.scss */
+/* line 95, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/page.css.scss */
 .stories-list-item .info-line .create-info {
   color: #bbbbbb;
 }
 
-/* line 90, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/page.css.scss */
+/* line 101, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/page.css.scss */
 .loading-hint {
   width: 24px;
   margin: auto;
 }
-/* line 96, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/page.css.scss */
+/* line 107, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/page.css.scss */
 .loading-hint .preloader-wrapper {
   height: 24px;
   width: 24px;
 }
 
 @-webkit-keyframes fallPerspective {
-  /* line 104, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/page.css.scss */
+  /* line 115, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/page.css.scss */
   100% {
     -webkit-transform: translateZ(0px) translateY(0px) rotateX(0deg);
     -moz-transform: translateZ(0px) translateY(0px) rotateX(0deg);
@@ -841,7 +855,7 @@ body {
 }
 
 @-moz-keyframes fallPerspective {
-  /* line 104, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/page.css.scss */
+  /* line 115, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/page.css.scss */
   100% {
     -webkit-transform: translateZ(0px) translateY(0px) rotateX(0deg);
     -moz-transform: translateZ(0px) translateY(0px) rotateX(0deg);
@@ -853,7 +867,7 @@ body {
 }
 
 @keyframes fallPerspective {
-  /* line 104, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/page.css.scss */
+  /* line 115, e:/MyCoding/Git/hackernews/HackerNewsClient/app/assets/stylesheets/page.css.scss */
   100% {
     -webkit-transform: translateZ(0px) translateY(0px) rotateX(0deg);
     -moz-transform: translateZ(0px) translateY(0px) rotateX(0deg);

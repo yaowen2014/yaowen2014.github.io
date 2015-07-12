@@ -12250,7 +12250,11 @@ function proxyEvents(proxy, originalObj, options) {
 
             self.score(storyObj.score);
 
-            self.url(storyObj.url);
+            if(storyObj.url && storyObj.url.length > 0) {
+                self.url(storyObj.url);
+            } else {
+                self.url("https://news.ycombinator.com/item?id=" + storyObj.id);
+            }
 
             self.createTime(storyObj.time * 1000);
 
@@ -12270,6 +12274,7 @@ function proxyEvents(proxy, originalObj, options) {
         this.gotoPost = function(){
             window.location = self.url();
         }
+
     }
 }).call(window);
 (function(){
@@ -12336,9 +12341,24 @@ function proxyEvents(proxy, originalObj, options) {
             needInit: true
         });
 
+        this.showStoriesList = new App.ViewModels.List(App.ViewModels.Story, "showstories", {
+            needInit: true
+        });
+
+        this.askStoriesList = new App.ViewModels.List(App.ViewModels.Story, "askstories", {
+            needInit: true
+        });
+
+        this.jobStoriesList = new App.ViewModels.List(App.ViewModels.Story, "jobstories", {
+            needInit: true
+        });
+
         this.tabsList = new App.ViewModels.TabsList([
             new App.ViewModels.TabButton("Top", self.topStoriesList),
-            new App.ViewModels.TabButton("New", self.newStoriesList)
+            new App.ViewModels.TabButton("New", self.newStoriesList),
+            new App.ViewModels.TabButton("Show", self.showStoriesList),
+            new App.ViewModels.TabButton("Ask", self.askStoriesList),
+            new App.ViewModels.TabButton("Job", self.jobStoriesList)
         ]);
 
         $(window).scroll(function(){

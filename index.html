@@ -4,13 +4,13 @@
   <title>Hacker News</title>
   <meta name="format-detection" content="telephone=no">
   <meta name="viewport" content="width=device-width, user-scalable=no">
-  <link data-turbolinks-track="true" href="/assets/application-ffc33cb84798429354c8f290140bbbb0.css" media="all" rel="stylesheet" />
-  <script data-turbolinks-track="true" src="/assets/application-9e7f43e1cd305bcb3294973e57563d3f.js"></script>
+  <link data-turbolinks-track="true" href="/assets/application-bd1261f159ea056118fc33f295602cd7.css" media="all" rel="stylesheet" />
+  <script data-turbolinks-track="true" src="/assets/application-54081854768d271b1ef0c49f6756f5c1.js"></script>
   
 </head>
 <body>
-
-<div class="tabs-list-wrap">
+<div class="main-wrap">
+  <div class="tabs-list-wrap">
   <ul class="tabs-list" data-bind="foreach: tabsList.tabButtons">
     <li class="tab-btn" data-bind="text: buttonText, click: clickTab, css: {active: active}"></li>
   </ul>
@@ -31,19 +31,13 @@
 </script>
 
 <!-- ko with: topStoriesList -->
-<ul class="top-stories-list" data-bind="foreach: elements, visible: visible">
-  <!-- ko template: {name: 'story-item-template', data: $data} -->
-  <!-- /ko -->
-</ul>
-<!-- /ko -->
-
-<!-- ko with: newStoriesList -->
-<ul class="new-stories-list" data-bind="foreach: elements, visible: visible">
-  <!-- ko template: {name: 'story-item-template', data: $data} -->
-  <!-- /ko -->
-</ul>
-<div class="loading-hint" data-bind="visible:loading">
-  <div class="preloader-wrapper active">
+<div class="stories-list-wrap" data-bind="visible: visible" style="display: none">
+  <ul class="stories-list" data-bind="foreach: elements">
+    <!-- ko template: {name: 'story-item-template', data: $data} -->
+    <!-- /ko -->
+  </ul>
+  <div class="loading-hint" data-bind="visible:loading">
+    <div class="preloader-wrapper active">
   <div class="spinner-layer spinner-blue-only">
     <div class="circle-clipper left">
       <div class="circle"></div>
@@ -55,9 +49,108 @@
   </div>
 </div>
 
+  </div>
 </div>
+
 <!-- /ko -->
 
+<!-- ko with: newStoriesList -->
+<div class="stories-list-wrap" data-bind="visible: visible" style="display: none">
+  <ul class="stories-list" data-bind="foreach: elements">
+    <!-- ko template: {name: 'story-item-template', data: $data} -->
+    <!-- /ko -->
+  </ul>
+  <div class="loading-hint" data-bind="visible:loading">
+    <div class="preloader-wrapper active">
+  <div class="spinner-layer spinner-blue-only">
+    <div class="circle-clipper left">
+      <div class="circle"></div>
+    </div><div class="gap-patch">
+      <div class="circle"></div>
+    </div><div class="circle-clipper right">
+      <div class="circle"></div>
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+<!-- /ko -->
+
+<!-- ko with: showStoriesList -->
+<div class="stories-list-wrap" data-bind="visible: visible" style="display: none">
+  <ul class="stories-list" data-bind="foreach: elements">
+    <!-- ko template: {name: 'story-item-template', data: $data} -->
+    <!-- /ko -->
+  </ul>
+  <div class="loading-hint" data-bind="visible:loading">
+    <div class="preloader-wrapper active">
+  <div class="spinner-layer spinner-blue-only">
+    <div class="circle-clipper left">
+      <div class="circle"></div>
+    </div><div class="gap-patch">
+      <div class="circle"></div>
+    </div><div class="circle-clipper right">
+      <div class="circle"></div>
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+<!-- /ko -->
+
+<!-- ko with: askStoriesList -->
+<div class="stories-list-wrap" data-bind="visible: visible" style="display: none">
+  <ul class="stories-list" data-bind="foreach: elements">
+    <!-- ko template: {name: 'story-item-template', data: $data} -->
+    <!-- /ko -->
+  </ul>
+  <div class="loading-hint" data-bind="visible:loading">
+    <div class="preloader-wrapper active">
+  <div class="spinner-layer spinner-blue-only">
+    <div class="circle-clipper left">
+      <div class="circle"></div>
+    </div><div class="gap-patch">
+      <div class="circle"></div>
+    </div><div class="circle-clipper right">
+      <div class="circle"></div>
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+<!-- /ko -->
+
+<!-- ko with: jobStoriesList -->
+<div class="stories-list-wrap" data-bind="visible: visible" style="display: none">
+  <ul class="stories-list" data-bind="foreach: elements">
+    <!-- ko template: {name: 'story-item-template', data: $data} -->
+    <!-- /ko -->
+  </ul>
+  <div class="loading-hint" data-bind="visible:loading">
+    <div class="preloader-wrapper active">
+  <div class="spinner-layer spinner-blue-only">
+    <div class="circle-clipper left">
+      <div class="circle"></div>
+    </div><div class="gap-patch">
+      <div class="circle"></div>
+    </div><div class="circle-clipper right">
+      <div class="circle"></div>
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+<!-- /ko -->
+
+</div>
 
 </body>
 </html>
